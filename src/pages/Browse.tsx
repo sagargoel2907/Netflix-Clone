@@ -1,21 +1,15 @@
 import React, { useEffect } from "react";
 import fetchRequest, { MovieResponse, MovieResult } from "../common/api";
 import { ENDPOINTS } from "../common/endpoints";
+import ContentRow from "../components/ContentRow";
 
 function Browse() {
-  async function fetchPopularMovies(){
-    const popularMovies=await fetchRequest<MovieResponse<MovieResult>>(ENDPOINTS.MOVIES_POPULAR);
-    console.log(popularMovies);
-  }
-
-  useEffect(()=>{
-    fetchPopularMovies();
-  },[]);
-
   return (
     <section>
       <section>Banner Image</section>
-      <section className="row">row</section>
+      <ContentRow endpoint={ENDPOINTS.MOVIES_POPULAR} title="Popular" />
+      <ContentRow endpoint={ENDPOINTS.MOVIES_NOW_PLAYING} title="Now Playing" />
+      <ContentRow endpoint={ENDPOINTS.MOVIES_TOP_RATED} title="Top Rated" />
     </section>
   );
 }

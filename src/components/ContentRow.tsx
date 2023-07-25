@@ -99,7 +99,7 @@ function ContentRow({ endpoint, title }: { endpoint: string; title: string }) {
         >
           {rowData?.map((item) => {
             const { id, title, poster_path } = item;
-            return <MovieCard {...item} />;
+            return <MovieCard key={id} {...item} />;
           })}
         </section>
       </section>

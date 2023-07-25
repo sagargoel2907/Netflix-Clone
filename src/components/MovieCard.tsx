@@ -33,8 +33,8 @@ function MovieCard({ id, poster_path, title }: MovieCardProp) {
           loading="eager"
           className="h-full w-full object-contain rounded-lg"
           src={
-            //   getImageURL(poster_path, CARD_WIDTH)
-            "https://th.bing.com/th/id/OIP.MdXVNCgYOzm_2VbkDFO1-gAAAA?pid=ImgDet&rs=1"
+            getImageURL(poster_path, CARD_WIDTH)
+            // "https://th.bing.com/th/id/OIP.MdXVNCgYOzm_2VbkDFO1-gAAAA?pid=ImgDet&rs=1"
           }
           alt={title}
         ></img>

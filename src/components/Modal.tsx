@@ -8,6 +8,7 @@ type ModalProps = {
   onClose: () => void;
   title: string;
   children: React.ReactElement;
+  videoID: string;
 };
 
 export default function Modal({
@@ -15,7 +16,9 @@ export default function Modal({
   onClose,
   title,
   children,
+  videoID,
 }: ModalProps) {
+  console.log(videoID);
   const opts = {
     height: "390",
     width: "640",
@@ -57,7 +60,7 @@ export default function Modal({
                 >
                   {title}
                 </Dialog.Title>
-                <Youtube videoId="2g811Eo7K8U" opts={opts} />
+                <Youtube videoId={videoID} opts={opts} />
               </Dialog.Panel>
             </Transition.Child>
           </div>

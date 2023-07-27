@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import netflixLogo from "../assets/Netflix_Logo_RGB.png";
 import { Link, NavLink } from "react-router-dom";
 
 function Header() {
+  const [fixed, setfixed] = useState(false);
   function isActiveLink({ isActive }: { isActive: boolean }) {
     return isActive ? "font-semibold text-white" : "";
   }
+  function onWindowScroll() {
+    if (window.scrollY > 8) {
+      setfixed(true);
+    } else {
+      setfixed(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", onWindowScroll);
+    return () => window.removeEventListener("scroll", onWindowScroll);
+  }, []);
   return (
-    <header className="border-b-2 py-2">
+    <header
+      className={`py-2 fixed w-full z-10 transition-colors duration-700 ease-linear ${
+        fixed ? "bg-dark" : "bg-transparent"
+      }`}
+    >
       <nav className="grid grid-cols-[200px_auto_200px] gap-4 items-center">
         <section className="h-12">
           <Link to="/">

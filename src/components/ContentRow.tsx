@@ -65,17 +65,17 @@ function ContentRow({ endpoint, title }: { endpoint: string; title: string }) {
 
   return (
     <section className="row-container px-4">
-      <h1 className="mb-4">{title}</h1>
+      <h1 className="mb-2">{title}</h1>
 
       <PageIndicator
         currentPage={currentPage}
         pageCount={pageCount.current}
-        className="justify-end mb-4 opacity-0"
+        className="justify-end mb-2 opacity-0"
       />
 
       <section
         ref={containerRef}
-        className="relative flex flex-nowrap overflow-x-hidden gap-2"
+        className="relative flex flex-nowrap overflow-x-hidden gap-2 mb-4"
       >
         {!disablePrev ? (
           <button

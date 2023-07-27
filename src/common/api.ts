@@ -1,3 +1,6 @@
+import { MovieVideoInfo, MovieVideoResult } from "../components/MovieCard";
+import { ENDPOINTS } from "./endpoints";
+
 export type MovieResponse<T> = {
   page: number;
   results: T;
@@ -27,4 +30,13 @@ export default async function fetchRequest<T>(endpoint: string) {
   url.searchParams.append("api_key", import.meta.env.VITE_API_KEY);
   const response = await fetch(url);
   return response.json() as Promise<T>;
+}
+
+export async function fetchVideoInfo(id: number) {
+  const response = await fetchRequest<MovieVideoInfo<MovieVideoResult>>(
+    ENDPOINTS.MOVIES_VIDEO.replace("{movie_id}", id.toString())
+  );
+  return response.results.filter(
+    (result) => result.site.toLowerCase() == "youtube"
+  );
 }

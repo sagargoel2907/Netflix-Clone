@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
+body {
     background-color: theme("colors.dark");
     color: theme("colors.white");
     min-height: theme("height.screen");
+    /* overflow-x: hidden; */
 }
 
-.row-container:hover .opacity-0{
+* {
+    box-sizing: border-box;
+}
+
+.row-container:hover .opacity-0 {
     opacity: theme("opacity.100");
+    /* color: hwb(89 8% 0%); */
 }

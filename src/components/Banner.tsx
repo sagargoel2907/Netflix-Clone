@@ -36,14 +36,14 @@ function Banner() {
     }, 2000);
   }, []);
 
-  function onStateChange(event: YouTubeEvent<number>) {
-    if (event.data == 0) {
-      sethidePoster(false);
-      setshowBackDrop(true);
-    } else if (event.data == 1) {
-      sethidePoster(true);
-    }
-  }
+  // function onStateChange(event: YouTubeEvent<number>) {
+  //   if (event.data == 0) {
+  //     sethidePoster(false);
+  //     setshowBackDrop(true);
+  //   } else if (event.data == 1) {
+  //     sethidePoster(true);
+  //   }
+  // }
 
   return (
     <section
@@ -74,7 +74,6 @@ function Banner() {
             },
           }}
           className="-mt-14"
-          onStateChange={onStateChange}
         />
       )}
       {showBackDrop ? (
